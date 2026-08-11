@@ -32,8 +32,11 @@ jobs:
         run: cargo clippy
 
   build:
-    runs-on: windows-latest
-    name: build & test
+    strategy:
+      matrix:
+        os: [windows-latest, windows-11-arm]
+    runs-on: ${{ matrix.os }}
+    name: build & test (${{ matrix.os }})
     steps:
       - name: Checkout 
         uses: actions/checkout@v4
