@@ -53,7 +53,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: snapshot
+          name: snapshot (${{ matrix.os }})
           path: |
             target/release/snapshot.dll
             target/release/snapshot.pdb
